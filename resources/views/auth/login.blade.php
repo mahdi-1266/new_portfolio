@@ -1,47 +1,115 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+<!DOCTYPE html>
+<html lang="en">
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+  
+<!-- Mirrored from bootstrapget.com/demos/soft-admin-template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Jan 2026 06:47:12 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Soft UI Admin Dashboard</title>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+    <!-- Meta -->
+    <meta name="description" content="Marketplace for admin templates" />
+    <meta name="author" content="Bootstrap Gallery" />
+    <link rel="canonical" href="https://www.templatemonster.com/store/bootstrapgallery">
+    <meta property="og:url" content="https://www.templatemonster.com/store/bootstrapgallery">
+    <meta property="og:title" content="Admin Templates - Dashboard Templates | Softism UI Kit">
+    <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
+    <meta property="og:type" content="Website">
+    <meta property="og:site_name" content="BootstrapGet">
+    <link rel="shortcut icon" href="{{ asset('backend/assets/images/favicon.svg') }}" />
+    
+    <!-- *************
+			************ CSS Files *************
+		************* -->
+    <!-- Remix Font Icons css -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/fonts/remix/remixicon.css') }}" />
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/animate.css') }}" />
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ asset('backend/assets/css/main.min.css') }}" />
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+  </head>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+  <body class="login-bg">
+
+    <!-- Container starts -->
+    <div class="container">
+
+      <!-- Auth wrapper starts -->
+      <div class="auth-wrapper">
+
+        <!-- Form starts -->
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+
+            <div class="auth-box">
+                <a href="index-2.html" class="auth-logo mb-4">
+                <img src="{{ asset('backend/assets/images/logo.svg') }}" alt="Softism Admin Template">
                 </a>
-            @endif
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+                <h4 class="mb-4">Login</h4>
+
+                <div class="mb-3">
+                    <label class="form-label" for="email">Your email <span class="text-danger">*</span></label>
+                    <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email">
+                </div>
+
+                <div class="mb-2">
+                    <label class="form-label" for="password">Your password <span class="text-danger">*</span></label>
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Enter password">
+                </div>
+
+                <div class="d-flex justify-content-end mb-3">
+                    <a href="{{ route('password.request') }}" class="text-decoration-underline">Forgot Password?</a>
+                </div>
+
+                <div class="mb-3 d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a href="{{ route('register') }}" class="btn btn-outline-primary">Not Registered? Signup</a>
+                </div>
+
+            </div>
+
+        </form>
+        <!-- Form ends -->
+
+      </div>
+      <!-- Auth wrapper ends -->
+
+    </div>
+    <!-- Container ends -->
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+      @if(Session::has('message'))
+        var type = "{{ Session::get('alert-type','info') }}"
+        switch(type){
+          case 'info':
+          toastr.info(" {{ Session::get('message') }} ");
+          break;
+
+          case 'success':
+          toastr.success(" {{ Session::get('message') }} ");
+          break;
+
+          case 'warning':
+          toastr.warning(" {{ Session::get('message') }} ");
+          break;
+
+          case 'error':
+          toastr.error(" {{ Session::get('message') }} ");
+          break; 
+        }
+      @endif 
+    </script>
+
+  </body>
+
+
+<!-- Mirrored from bootstrapget.com/demos/soft-admin-template/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 31 Jan 2026 06:47:12 GMT -->
+</html>

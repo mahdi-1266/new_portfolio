@@ -2614,7 +2614,7 @@ a:hover{
 }
 
 .cta-btn-container{
-    width: 260px;
+    width: 32%;
     height: auto;
     display: flex;
     margin: 30px auto;
@@ -2663,8 +2663,9 @@ background: #1064bd;
 .front {
  display: block;
  position: relative;
- padding: 12px 27px;
- border-radius: 12px;
+ padding: 12px 0;
+ width: 180px;
+ border-radius: 4px;
  font-size: 1.7rem;
  color: white;
  /* background: hsl(345deg 100% 47%); */
