@@ -25,8 +25,24 @@
         </ul>
       </li>
 
-      <li class="treeview">
+      <div class="">
         <small class="ms-3 text-secondary text-uppercase">Pages</small>
+      </div>
+
+      <li class="treeview">
+        <a href="#!">
+          <i class="ri-home-line"></i>
+          <span class="menu-text">Manage Brand</span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{{ route('admin.brand') }}">Home</a>
+          </li>
+        </ul>
+      </li>
+
+
+      <li class="treeview">
         <a href="#!">
           <i class="ri-home-line"></i>
           <span class="menu-text">Hero</span>
