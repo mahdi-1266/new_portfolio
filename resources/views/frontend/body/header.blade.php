@@ -10,11 +10,11 @@
     <div id="navbar" class="main_menu">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="{{ url('/') }}">Home</a></li>
-        <li><a href="{{ route('admin.about') }}">About</a></li>						
-        <li><a href='{{ route('admin.portfolio') }}'>Portfolio</a></li>
-        <li><a href='{{ route('admin.skill') }}'>Skills</a></li>
-        <li><a href='{{ route('admin.resume') }}'>Resume</a></li>											
-        <li><a href='{{ route('admin.contact') }}'>Contact</a></li>
+        <li><a href="{{ route('about') }}">About</a></li>						
+        <li><a href='{{ route('portfolio') }}'>Portfolio</a></li>
+        <li><a href='{{ route('skill') }}'>Skills</a></li>
+        <li><a href='{{ route('resume') }}'>Resume</a></li>											
+        <li><a href='{{ route('contact') }}'>Contact</a></li>
       </ul>
 
       <button class="menu-toggle" aria-label="Toggle menu">

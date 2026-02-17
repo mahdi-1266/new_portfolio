@@ -24,16 +24,23 @@
               </thead>
 
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mahdi</td>
-                  <td>Description</td>
-                  <td>Github</td>
-                  <td>Facebook</td>
-                  <td>Linkedin</td>
-                  <td>Instagram</td>
-                  <td>Action</td>
-                </tr>
+                @foreach($hero as $key => $item)
+                  <tr>
+                    <td>{{ $key+1 }}</td>
+                    <td>{{ $item->name ?? '' }}</td>
+                    <td>{{ $item->description ?? '' }}</td>
+                    <td>{{ $item->github_link ?? '' }}</td>
+                    <td>{{ $item->facebook_link ?? '' }}</td>
+                    <td>{{ $item->linkedin_link ?? '' }}</td>
+                    <td>{{ $item->instagram_link ?? '' }}</td>
+                    <td>
+                      <div class="d-flex gap-2">
+                        <a class="btn btn-primary btn-sm btn-icon" href="#"><i class="ri-edit-line"></i></a>
+                        <a class="btn btn-danger btn-sm btn-icon" href="#"><i class="ri-delete-bin-line"></i></a>
+                      </div>
+                    </td>
+                  </tr>
+                @endforeach
               </tbody>
 
               {{-- <tbody>

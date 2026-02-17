@@ -12,7 +12,7 @@
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 	<!------ Favicon Icon ------>
-	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('backend/assets/images/logo/favicon-32x32.png') }}">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/assets/images/logo/favicon-32x32.png') }}">
 
 	<!-- SITE TITLE -->
 	<title>Mahdi Alizada Portfolio Website</title>
@@ -22,6 +22,8 @@
 	
 	<link rel="stylesheet" href="{{ asset('frontend/assets/css/all.min.css') }}" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/brands.min.css" integrity="sha512-WxpJXPm/Is1a/dzEdhdaoajpgizHQimaLGL/QqUIAjIihlQqlPQb1V9vkGs9+VzXD7rgI6O+UsSKl4u5K36Ydw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<link href="{{ asset('frontend/assets/fonts/font-awesome.min.css') }}" rel="stylesheet"/>
 	<link href="{{ asset('frontend/assets/fonts/themify-icons.css') }}" rel="stylesheet"/>
   

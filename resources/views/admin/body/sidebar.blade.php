@@ -32,19 +32,6 @@
       <li class="treeview">
         <a href="#!">
           <i class="ri-home-line"></i>
-          <span class="menu-text">Manage Brand</span>
-        </a>
-        <ul class="treeview-menu">
-          <li>
-            <a href="{{ route('admin.brand') }}">Home</a>
-          </li>
-        </ul>
-      </li>
-
-
-      <li class="treeview">
-        <a href="#!">
-          <i class="ri-home-line"></i>
           <span class="menu-text">Hero</span>
         </a>
         <ul class="treeview-menu">
@@ -53,6 +40,18 @@
           </li>
         </ul>
       </li>
+
+      {{-- <li class="treeview">
+        <a href="#!">
+          <i class="ri-home-line"></i>
+          <span class="menu-text">About</span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="{{ route('admin.about') }}">Home</a>
+          </li>
+        </ul>
+      </li> --}}
       
     </ul>
   </div>
