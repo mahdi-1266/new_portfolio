@@ -47,7 +47,7 @@
 <body data-spy="scroll" data-offset="80">
 
 	<!------ Cursor Start ------>
-	<div id="cursor"></div>
+	<div id="custom-cursor" aria-hidden="true"></div>
 	<!------ Cursor End ------>
 
 		<!-- START PRELOADER -->

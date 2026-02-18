@@ -18,13 +18,77 @@ fetch("./components/footer.html").then((response) => response.text()).then((data
 
 
 /* ------- Cursor start ------- */ 
-let cursor = document.getElementById("cursor");
+// Custom Animated Gradient Cursor (vanilla JS, rAF + lerp)
+(function () {
+  const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+  const reduceMotionMql = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (isCoarse || reduceMotionMql.matches) return;
 
-document.onmousemove = function(e){
-	cursor.style.left = (e.pageX - 15) + "px";
-	cursor.style.top = (e.pageY - 10) + "px";
-	cursor.style.display = "block";
-}
+  const el = document.getElementById('custom-cursor');
+  if (!el) return;
+
+  const lerp = (a, b, t) => a + (b - a) * t;
+
+  const SIZE = 20;
+  const HALF = SIZE / 2;
+  let tx = -100, ty = -100;
+  let x = tx, y = ty;
+  let scale = 1;
+  let rafId = null;
+  const ease = 0.18;
+
+  function render() {
+    el.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) scale(' + scale + ')';
+  }
+
+  function animate() {
+    x = lerp(x, tx, ease);
+    y = lerp(y, ty, ease);
+    render();
+    rafId = requestAnimationFrame(animate);
+  }
+
+  function onMove(e) {
+    tx = e.clientX - HALF;
+    ty = e.clientY - HALF;
+    if (el.style.opacity !== '1') el.style.opacity = '1';
+    if (rafId === null) rafId = requestAnimationFrame(animate);
+  }
+
+  function onLeave() {
+    el.style.opacity = '0';
+    if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  function onDown() { scale = 0.85; render(); }
+  function onUp() { scale = 1; render(); }
+
+  window.addEventListener('mousemove', onMove, { passive: true });
+  window.addEventListener('mouseleave', onLeave, { passive: true });
+  window.addEventListener('mousedown', onDown, { passive: true });
+  window.addEventListener('mouseup', onUp, { passive: true });
+  window.addEventListener('blur', onLeave, { passive: true });
+
+  // Hover scaling on interactive elements
+  const hoverables = ['a', 'button', 'input[type="button"]', 'input[type="submit"]', 'label[for]'];
+  document.addEventListener('mouseover', (e) => {
+    const t = e.target;
+    if (t && hoverables.some(sel => t.matches(sel))) { scale = 1.25; render(); }
+  }, { passive: true });
+  document.addEventListener('mouseout', (e) => {
+    const t = e.target;
+    if (t && hoverables.some(sel => t.matches(sel))) { scale = 1; render(); }
+  }, { passive: true });
+
+  reduceMotionMql.addEventListener('change', (e) => {
+    if (e.matches) {
+      onLeave();
+      el.style.display = 'none';
+    } else {
+      el.style.display = '';
+    }
+  });
+})();
 /* ------- Cursor end ------- */ 
 
 

@@ -35,8 +35,8 @@
                     <td>{{ $item->instagram_link ?? '' }}</td>
                     <td>
                       <div class="d-flex gap-2">
-                        <a class="btn btn-primary btn-sm btn-icon" href="#"><i class="ri-edit-line"></i></a>
-                        <a class="btn btn-danger btn-sm btn-icon" href="#"><i class="ri-delete-bin-line"></i></a>
+                        <a class="btn btn-primary btn-sm btn-icon" href="{{ route('edit.home', $item->id) }}"><i class="ri-edit-line"></i></a>
+                        <a class="btn btn-danger btn-sm btn-icon" href="{{ route('delete.home', $item->id) }}"><i class="ri-delete-bin-line"></i></a>
                       </div>
                     </td>
                   </tr>

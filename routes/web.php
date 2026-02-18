@@ -52,6 +52,9 @@ Route::controller(HeroController::class)->group(function(){
     Route::get('/home/page', 'HeroSection')->name('admin.home');
     Route::get('/add/home', 'AddHome')->name('add.home');
     Route::post('/store/home', 'StoreHome')->name('store.home');
+    Route::get('/edit/home/{id}', 'EditHome')->name('edit.home');
+    Route::post('/update/home', 'UpdateHome')->name('update.home');
+    Route::get('/delete/home/{id}', 'DeleteHome')->name('delete.home');
 });
 /* ------- Hero End -------*/
 
