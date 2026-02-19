@@ -18,13 +18,13 @@
           @endphp
 
           @foreach($hero as $hero)
-            <h2>Hi Dear, I am <span class="text-primary">{{ $hero->name }}</span></h2>
+            <h2>Hi Dear, I am <span class="hero-name">{{ $hero->name }}</span></h2>
             <h1 class="cd-headline clip">
               <!-- <span class="fw_600">I'm a</span> -->
               <span class="cd-words-wrapper">
-                <b class="text-primary fw_300 is-visible">Web Designer</b>
-                <b class="text-primary fw_300">Web Developer</b>
-                <b class="text-primary fw_300">Fullstack Developer</b>
+                <b class="text-primary fw_300 is-visible special-text">Web Designer</b>
+                <b class="text-primary fw_300 special-text">Web Developer</b>
+                <b class="text-primary fw_300 special-text">Fullstack Developer</b>
               </span>
             </h1>
             <p class="banner_text_content">{{ $hero->description }}</p>

@@ -2622,8 +2622,19 @@ a:hover{
 .banner_content h2 {
     color: var(--text-color);
 }
-.banner_content h1 {
-    color: var(--text-color);
+
+.banner_content .hero-name{
+    background: linear-gradient(to right, rgb(250, 78, 10), rgb(247, 12, 204), rgb(0, 106, 255));
+    background-clip: text;
+    color: transparent;
+    font-size: 4rem;
+}
+
+.special-text{
+    /* color: var(--text-color); */
+    /* background: linear-gradient(to right, rgb(250, 78, 10), rgb(247, 12, 204), rgb(0, 106, 255));
+    background-clip: text;
+    color: transparent; */
     font-size: 40px;
     margin: 15px 0 10px;
 }
@@ -3133,9 +3144,11 @@ button:focus:not(:focus-visible) {
     border-radius: 5px;
     border-radius: 50%;
     animation: scale 2s linear infinite;
+    display: inline-block;
+    perspective: 1000px;
 }
 
-@keyframes scale {
+/* @keyframes scale {
     0%{
         transform: scale(1);
     }
@@ -3145,12 +3158,12 @@ button:focus:not(:focus-visible) {
     100%{
         transform: scale(1);
     }      
-}
+} */
 
 .about_image img{
-    /* width: 100%;
-    height: 100%; */
     border-radius: 50%;
+    transition: transform 0.1s ease;
+    transform-style: preserve-3d;
 }
 
 .about_content_container{
@@ -3516,6 +3529,162 @@ button:focus:not(:focus-visible) {
        -moz-transition: all .3s ease;
             transition: all .3s ease;
 }
+
+
+/* From Uiverse.io by Pradeepsaranbishnoi */ 
+.voltage-button {
+    width: 170px;
+    position: relative;
+    left: 50px;
+}
+
+.voltage-button button {
+  color: white;
+  background: rgba(0, 0, 0, 0.07);
+  padding: 1.5rem 0;
+  border-radius: 10px;
+  border: 3px solid var(--text-color);
+  font-size: 1.4rem;
+  line-height: 1em;
+  letter-spacing: 0.075em;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.voltage-button button:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.voltage-button button:hover + svg, .voltage-button button:hover + svg + .dots {
+  opacity: 1;
+}
+
+.voltage-button svg {
+  display: block;
+  position: absolute;
+  top: -0.75em;
+  left: -0.25em;
+  width: calc(100% + 0.5em);
+  height: calc(100% + 1.5em);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+  transition-delay: 0.1s;
+}
+
+.voltage-button svg path {
+  stroke-dasharray: 100;
+  filter: url("#glow");
+}
+
+.voltage-button svg path.line-1 {
+  stroke: #f6de8d;
+  stroke-dashoffset: 0;
+  animation: spark-1 3s linear infinite;
+}
+
+.voltage-button svg path.line-2 {
+  stroke: #6bfeff;
+  stroke-dashoffset: 500;
+  animation: spark-2 3s linear infinite;
+}
+
+.voltage-button .dots {
+  opacity: 0;
+  transition: opacity 0.3s;
+  transition-delay: 0.4s;
+}
+
+.voltage-button .dots .dot {
+  width: 1rem;
+  height: 1rem;
+  background: white;
+  border-radius: 100%;
+  position: absolute;
+  opacity: 0;
+}
+
+.voltage-button .dots .dot-1 {
+  top: 0;
+  left: 20%;
+  animation: fly-up 3s linear infinite;
+}
+
+.voltage-button .dots .dot-2 {
+  top: 0;
+  left: 55%;
+  animation: fly-up 3s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.voltage-button .dots .dot-3 {
+  top: 0;
+  left: 80%;
+  animation: fly-up 3s linear infinite;
+  animation-delay: 1s;
+}
+
+.voltage-button .dots .dot-4 {
+  bottom: 0;
+  left: 30%;
+  animation: fly-down 3s linear infinite;
+  animation-delay: 2.5s;
+}
+
+.voltage-button .dots .dot-5 {
+  bottom: 0;
+  left: 65%;
+  animation: fly-down 3s linear infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes spark-1 {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+@keyframes spark-2 {
+  to {
+    stroke-dashoffset: -500;
+  }
+}
+
+@keyframes fly-up {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.2);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(-1.5rem) scale(0.4);
+  }
+
+  10%, 100% {
+    opacity: 0;
+    transform: translateY(-3rem) scale(0.2);
+  }
+}
+
+@keyframes fly-down {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.2);
+  }
+
+  5% {
+    opacity: 1;
+    transform: translateY(1.5rem) scale(0.4);
+  }
+
+  10%, 100% {
+    opacity: 0;
+    transform: translateY(3rem) scale(0.2);
+  }
+}
+
 
 /* ----------------------------------------------------------------
     [ End Resume ]

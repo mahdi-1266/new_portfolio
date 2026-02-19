@@ -41,7 +41,7 @@
         </ul>
       </li>
 
-      {{-- <li class="treeview">
+      <li class="treeview">
         <a href="#!">
           <i class="ri-home-line"></i>
           <span class="menu-text">About</span>
@@ -51,7 +51,7 @@
             <a href="{{ route('admin.about') }}">Home</a>
           </li>
         </ul>
-      </li> --}}
+      </li>
       
     </ul>
   </div>

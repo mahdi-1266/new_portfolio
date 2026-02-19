@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\backend\HeroController;
+use App\Http\Controllers\backend\AboutController;
 
 
 use App\Http\Controllers\frontend\FrontendController;
@@ -57,5 +58,17 @@ Route::controller(HeroController::class)->group(function(){
     Route::get('/delete/home/{id}', 'DeleteHome')->name('delete.home');
 });
 /* ------- Hero End -------*/
+
+
+/* ------- About Start -------*/
+Route::controller(AboutController::class)->group(function(){
+    Route::get('/about/page', 'AboutSection')->name('admin.about');
+    Route::get('/about/home', 'AddAbout')->name('add.about');
+    Route::post('/store/about', 'StoreHome')->name('store.about');
+    Route::get('/edit/about/{id}', 'EditAbout')->name('edit.about');
+    Route::post('/update/about', 'UpdateAbout')->name('update.about');
+    Route::get('/delete/about/{id}', 'DeleteAbout')->name('delete.about');
+});
+/* ------- About End -------*/
 
 });

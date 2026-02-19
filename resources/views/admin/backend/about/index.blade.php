@@ -21,38 +21,21 @@
               </thead>
 
               <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mahdi</td>
-                  <td>Description</td>
-                  <td>Photo</td>
-                  <td>Action</td>
-                </tr>
-              </tbody>
-
-              {{-- <tbody>
-                @php
-                  $heroId = App\Models\HeroSection::get();
-                @endphp
-
-                @foreach($heroId as $hero)
+                @foreach($about as $about)
                   <tr>
-                    <td scope="row" class="border">{{ $hero->id }}</td>
-                    <td class="border">{{ $hero->name }}</td>
-                    <td class="border">{{ $hero->description }}</td>
-                    <td class="border">{{ $hero->github_link }}</td>
-                    <td class="border">{{ $hero->facebook_link }}</td>
-                    <td class="border">{{ $hero->linkedin_link }}</td>
-                    <td class="border">{{ $hero->instagram_link }}</td>
+                    <td scope="row" class="border">{{ $about->id }}</td>
+                    <td class="border">{{ $about->name }}</td>
+                    <td class="border">{{ $about->description }}</td>
+                    <td class="border"><img src="{{ asset($about->photo) }}" width="100" height="100" alt="{{ $about->name}}"></td>
                     <td class="border">
                       <div class="d-flex gap-2">
-                        <a class="btn btn-primary btn-sm btn-icon" href="#"><i class="ri-edit-line"></i></a>
-                        <a class="btn btn-danger btn-sm btn-icon" href="#"><i class="ri-delete-bin-line"></i></a>
+                        <a class="btn btn-primary btn-sm btn-icon" href="{{ route('edit.about', $about->id) }}"><i class="ri-edit-line"></i></a>
+                        <a class="btn btn-danger btn-sm btn-icon" href="{{ route('delete.about', $about->id) }}"><i class="ri-delete-bin-line"></i></a>
                       </div>
                     </td>
                   </tr>
                 @endforeach
-              </tbody> --}}
+              </tbody>
       
             </table>
 
